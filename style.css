@@ -1,0 +1,32 @@
+.navbar.navbar-expand-md.navbar-light {
+    background-color: rgb(252, 38, 92);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+}
+
+#texte{
+    border: thick double #000000;
+}
+.footer-copyright {
+    background-color:rgb(252, 38, 92);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-bottom: 0;
+  
+
+}
+.footer-copyright p {
+    color: white;
+    align-items: center;
+  
+
+}
+#connection{
+    color: white;
+    text-decoration: none;
+}
