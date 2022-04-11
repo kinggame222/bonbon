@@ -1,5 +1,5 @@
 <?php
-include 'inclus/header.inc'
+include 'inclus/header.php'
 ?>
 
 <div id="texte">
@@ -60,5 +60,5 @@ include 'inclus/header.inc'
 </div>
 
 <?php
-include 'inclus/footer.inc'
+include 'inclus/footer.php'
 ?>

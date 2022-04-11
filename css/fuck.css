@@ -1,5 +1,5 @@
 .navbar.navbar-expand-md.navbar-light {
-    background-color: rgb(252, 38, 92);
+    background-color: rgb(29, 201, 144);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -9,9 +9,12 @@
 #texte {
     border: thick double #000000;
 }
+#texte {
+    border: thick double rgb(29, 201, 144);
+}
 
 .footer-copyright {
-    background-color: rgb(252, 38, 92);
+    background-color: rgb(29, 201, 144);
     position: relative;
     display: flex;
     flex-wrap: wrap;
