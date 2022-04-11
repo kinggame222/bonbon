@@ -22,7 +22,7 @@ include 'inclus/header.php'
                 <label for="sujet">Sujet : </label>
             </div>
             <div class="col-1">
-                <!-- Nom -->
+                <!-- sujet -->
                 <input type="text">
             </div>
         </div>
@@ -33,18 +33,19 @@ include 'inclus/header.php'
                 <label for="Couriel">Courriel : </label>
             </div>
             <div class="col-1">
+                <!-- courriel -->
                 <input type="text">
             </div>
         </div>
         <div class="row">
             <div class="col-4">
             </div>
-
             <div class="col-4">
+                <!-- commentaire -->
                 <textarea name="com" id="textar" cols="50" rows="10">
-
                 </textarea>
             </div>
+           
         </div>
         <div class="row">
             <div class="col-5">
