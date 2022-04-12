@@ -45,7 +45,7 @@ include 'inclus/header.php'
                 <textarea name="com" id="textar" cols="50" rows="10">
                 </textarea>
             </div>
-           
+
         </div>
         <div class="row">
             <div class="col-5">
