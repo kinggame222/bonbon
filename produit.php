@@ -1,11 +1,17 @@
 <?php
 include 'inclus/header.php'
 ?>
-
+<?php
+require "librairies/fonction.php";
+$bd;
+connecterBD($bd);    // appel de la fonction dans fonctions.lib.php
+?>
 <div id="texte">
-    <br>
-    <p> <b>«En construction...»</b></p>
-    <br>
+    <form name="item" action="produit.php?action=ajouter" method="post">
+        <table>
+            <?php afficher($bd) ?>
+        </table>
+    </form>
 </div>
 
 <?php
