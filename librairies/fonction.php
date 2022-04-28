@@ -2,12 +2,14 @@
 function verife($bd)
 {
     $valid  = 1;
-    if (isset($_GET['action']))
+    if (isset($_GET['action'])) {
+
+        //ajouter 
         if ($_GET['action'] == "plus") {
             $requete = "select * from produit";
             $resultat = mysqli_query($bd, $requete);
-            while (mysqli_fetch_array($resultat)) {
-                $valid++;
+            while ($ligne = mysqli_fetch_array($resultat)) {
+                $valid = $ligne["idProduit"] + 1;
             }
             $uploads_dir = './image/';
             $extention = '.jpg';
@@ -17,8 +19,25 @@ function verife($bd)
             }
             ajouter_produit_function($bd);
         };
-};
 
+        //supprimer
+        if ($_GET['action'] == "supprimer") {
+            $requete = "select * from produit";
+            $resultat = mysqli_query($bd, $requete);
+            while ($ligne = mysqli_fetch_array($resultat)) {
+                $cocher = 'chk' . $ligne['idProduit'];
+                if (isset($_POST[$cocher])) {
+                    if ($_POST[$cocher]) {
+                        $requete2 = "delete from produit where idProduit = $ligne[idProduit]";
+                        $resultat2 = mysqli_query($bd, $requete2);
+                        var_dump($requete2);
+                    }
+                }
+            }
+        }
+        //ajouter autre action ici
+    }
+};
 
 function connecterBD(&$bd)
 {
@@ -70,9 +89,26 @@ function ajouter_produit_function($bd)
     $sql = "INSERT INTO produit (
 		nomProduit,fournisseur,quantite,format,prix,description)
     VALUES( '$_produit','$_fournisseur ',$_quant,'$_fmt kg',$_prix,'$_dsc');";
-    -mysqli_query($bd, $sql);
+    mysqli_query($bd, $sql);
+    // pour reset le compteur de la bd
+    //set @autoid :=0; 
+    //update produit set idProduit = @autoid := (@autoid+1);
+    //alter table produit Auto_Increment = 1;
+
 };
-// pour reset le compteur de la bd
-//set @autoid :=0; 
-//update produit set idProduit = @autoid := (@autoid+1);
-//alter table produit Auto_Increment = 1;
+
+function supp($bd)
+{
+    $requete = "select * from produit";
+    $resultat = mysqli_query($bd, $requete);
+    while ($ligne = mysqli_fetch_array($resultat)) {
+
+        echo "<tr>" . "<td>" . "<input type=checkbox name='chk$ligne[idProduit]'>" . "</td>",
+        "<td>" . $ligne["nomProduit"] . "</td>",
+        "<td>" . $ligne["prix"] . "</td>",
+        "<td>" . $ligne["quantite"] . "</td>",
+        "<td>" . $ligne["format"] . "</td>",
+        "<td>" . $ligne["fournisseur"] . "</td>",
+        "<td>" . $ligne["description"] . "</td>" . "</tr>";
+    }
+}

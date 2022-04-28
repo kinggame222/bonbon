@@ -9,14 +9,12 @@ verife($bd);
 ?>
 <div id="texte">
     <form name="f" action="Ajouter_Produit.php?action=plus" method="POST" enctype="multipart/form-data">
-
         <div class="input-group">
             <div class="input-group">
 
                 <div class="input-group-text">Nom du produit :</div>
                 <input type="text" class="form-control" required name="nomProduit">
             </div>
-
             <div class="input-group ">
                 <div class="input-group-text">Prix: </div>
                 <input type="text" class="form-control" required name="prix">
@@ -41,16 +39,10 @@ verife($bd);
             <div class="input-group">
                 <input type="file" class="form-control" name='photo' required>
             </div><br>
-
-
         </div>
         <input type="submit" value="sauvegarder" name="submit"><input type="reset" value="annuler">
     </form>
 </div>
-
-
-
-
 <?php
 include 'inclus/footer_admin.php'
 ?>
