@@ -35,6 +35,8 @@ function verife($bd)
                 }
             }
         }
+        if ($_GET['action'] == "modifier") {
+        }
         //ajouter autre action ici
     }
 };
@@ -111,4 +113,96 @@ function supp($bd)
         "<td>" . $ligne["fournisseur"] . "</td>",
         "<td>" . $ligne["description"] . "</td>" . "</tr>";
     }
+}
+function Modifier($bd)
+{
+    $requete = "select * from produit";
+    $resultat = mysqli_query($bd, $requete);
+
+
+    $noId = -1;
+    if (isset($_GET['id'])) {
+        $noId = $_GET['id'];
+    }
+
+    while ($ligne = mysqli_fetch_array($resultat)) {
+
+        if ($ligne["idProduit"] == $noId) {
+            echo ("
+          
+            <form name='f' action='modifier.php?action=modifier&no=$ligne[idProduit]' method='POST>
+            <div class='input-group'>
+
+                <div class='input-group'>
+                <div class='input-group-text'>Nom du produit :</div>
+                <input type='text' class='form-control' value =$ligne[nomProduit]  >
+                </div>
+              
+
+                <div class='input-group'>
+                <div class='input-group-text'>Prix :</div>
+                <input type='text' class='form-control' value =$ligne[prix]>
+                </div>
+
+                <div class='input-group'>
+                <div class='input-group-text'>Quantite :</div>
+                <input type='text' class='form-control' value =$ligne[quantite]>
+                </div>
+
+                <div class='input-group'>
+                <div class='input-group-text'>Format :</div>
+                <input type='text' class='form-control' value =$ligne[format]>
+                </div>
+                 
+                <div class='input-group'>
+                <div class='input-group-text'>fournisseur :</div>
+                <input type='text' class='form-control' value =$ligne[fournisseur]>
+                </div>
+                 
+                <div class='input-group'>
+                <div class='input-group-text'>fournisseur :</div>
+                <input type='text' class='form-control' value =$ligne[fournisseur]>
+                </div>
+                <div class='input-group'>
+                <div class='input-group-text'>description :</div>
+                <input type='text' class='form-control' value =$ligne[description]>
+                </div>
+            
+
+            </div><br>
+            
+            </div>
+            <input type='submit' value='sauvegarder'><input type='reset'value='annuler'>
+        </form>");
+        } else {
+            echo "<h5>" . $ligne["nomProduit"] . "</h5>",
+            "<div class=row >",
+            "<div class=col-lg-2 >
+              <img src=image/$ligne[idProduit].jpg width=193px, height=130px> 
+             </div>",
+            "<div class=col-lg-8> <b> prix : </b> " . $ligne["prix"],
+            " $",
+            "<br>",
+            "<b> quantité : </b> " . $ligne["quantite"],
+            "<br>",
+            "<b> format : </b> " . $ligne["format"],
+            "<b> fournisseur : </b> " . $ligne["fournisseur"],
+            "<br>",
+            "<b> description : </b> " . $ligne["description"],
+            "<br>",
+            "</div>",
+            "<div class=col-lg-2 >
+                <a href='modifier.php?id=$ligne[idProduit]'>modifier</a>
+             </div>",
+            "<br>";
+            print("</div><hr>");
+        }
+    };
+}
+function modifier2($bd, $idProduit, $nomProduit, $prix, $fournisseur, $quantite, $format, $description)
+{
+
+    $requete = "update produit set nomProduit =$nomProduit ,prix =$prix ,fournisseur=$fournisseur ,quantite= $quantite,format = $format ,description = $description where idProduit = $idProduit";
+    $resultat = mysqli_query($bd, $requete);
+
 }

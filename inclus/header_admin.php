@@ -38,7 +38,7 @@
                             <a class="nav-link" href="Ajouter_Produit.php">Ajouter Produit</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Modifier_Produit">Modifier Produit</a>
+                            <a class="nav-link" href="Modifier.php">Modifier Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="supprimerProduit.php">Supprimer Produit</a>
