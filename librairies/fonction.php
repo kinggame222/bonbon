@@ -21,7 +21,6 @@ function afficher($bd)
         "<div class=col-lg-2 >
         <img src=image/$ligne[idProduit].jpg width=193px, height=130px> 
         </div>",
-
         "<div class=col-lg-10> <b> prix : </b> " . $ligne["prix"],
         " $",
         "<br>",
@@ -38,3 +37,7 @@ function afficher($bd)
         print("</div><hr>");
     };
 }
+function ajouter()
+{
+    print_r($_POST);
+};

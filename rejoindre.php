@@ -32,6 +32,7 @@ include 'inclus/header.php'
             </div>
         </div>
         <div class="row">
+            <div class="col-3"></div>
             <div class="col-4">
                 <!-- commentaire -->
                 <textarea name="com" id="textar" cols="50" rows="10">inscrivez votre message

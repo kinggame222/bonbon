@@ -31,13 +31,16 @@
                 <div class="container-fluid">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="Ajouter_Produit.php"><b>M. BONBON</b></a>
+                            <a class="nav-link" href="Ajouter_Produit.php"><b>M. BONBON (Admin)</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ajouter Produit</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nous Rejoindre</a>
+                            <a class="nav-link" href="#">Modifier Produit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Supprimer Produit</a>
                         </li>
                     </ul>
                 </div>

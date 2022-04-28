@@ -1,21 +1,25 @@
 <?php
 include 'inclus/header.php'
 ?>
+<?php
+require "librairies/fonction.php";
+
+?>
 
 <div id="texte">
-    <form action="">
+    <form name="connection" action="connection.php?action=connection" method="post">
         <div class="row">
             <div class="col-4" align="right">
-                <label for="courriel">Courriel:</label>
+                <label for="cou ">Courriel:</label>
                 <br>
                 <label for="motdepasse">Mot de passe: </label>
             </div>
             <div class="col-7">
                 <!-- courriel -->
-                <input type="text">
+                <input type="text" name="courriel" id="courriel">
                 <br>
                 <!-- mot de passe  -->
-                <input type="password">
+                <input type="password" name="motdepasse" id="motdepasse">
             </div>
         </div>
         <div class="row">
@@ -24,8 +28,8 @@ include 'inclus/header.php'
             </div>
             <div class="col-7">
                 <br>
-                <input type="button" value="Se connecter">
-                <input type="button" value="Annuler">
+                <input type="button" value="Se connecter" onclick="location.href='Ajouter_Produit.php'">
+                <input type="reset" value="Annuler">
             </div>
         </div>
     </form>
