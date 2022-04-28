@@ -7,7 +7,7 @@ $bd;
 connecterBD($bd);    // appel de la fonction dans fonctions.lib.php
 ?>
 <div id="texte">
-    <form name="item" action="produit.php?action=ajouter" method="post">
+    <form name="item" action="produit.php" method="post">
         <table>
             <?php afficher($bd) ?>
         </table>
