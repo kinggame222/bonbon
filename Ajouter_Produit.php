@@ -5,7 +5,7 @@ include 'inclus/header_admin.php'
 require "librairies/fonction.php";
 $bd;
 connecterBD($bd);
-verife($bd);
+
 ?>
 <div id="texte">
     <form name="f" action="Ajouter_Produit.php?action=plus" method="POST" enctype="multipart/form-data">

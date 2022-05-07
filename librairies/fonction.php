@@ -34,9 +34,28 @@ function verife($bd)
                     }
                 }
             }
-        }
-        if ($_GET['action'] == "modifier") {
-        }
+        };
+        //connection 
+
+        if ($_GET['action'] == "connection") {
+            $requete = "select * from usager";
+            $resultat = mysqli_query($bd, $requete);
+            $_Courriel = $_POST['courriel'];
+            $_Mdp = $_POST['motdepasse'];
+
+            while ($ligne = mysqli_fetch_array($resultat)) {
+
+                if ($_Courriel == $ligne['mail'] && $_Mdp == $ligne['pasword'] && "" !== $_Courriel && "" !== $_Mdp) {
+                    echo '<script type="text/javascript">
+                    window.location = "http://site/bonbon/Ajouter_Produit.php?action=plus" </script>';
+                } else {
+                    echo '<script type="text/javascript">
+                    window.location = "http://site/bonbon/index.php"
+               </script>';
+                }
+            }
+        };
+
         //ajouter autre action ici
     }
 };
@@ -129,51 +148,49 @@ function Modifier($bd)
 
         if ($ligne["idProduit"] == $noId) {
             echo ("
-          
-            <form name='f' action='modifier.php?action=modifier&no=$ligne[idProduit]' method='POST>
+            <p>
+            <form name='f' action='modifier.php?action=modifier&no=$ligne[idProduit]' method='post'>
             <div class='input-group'>
 
                 <div class='input-group'>
                 <div class='input-group-text'>Nom du produit :</div>
-                <input type='text' class='form-control' value =$ligne[nomProduit]  >
+                <input type='text' class='form-control' size=45 value =$ligne[nomProduit]  >
                 </div>
               
 
                 <div class='input-group'>
                 <div class='input-group-text'>Prix :</div>
-                <input type='text' class='form-control' value =$ligne[prix]>
+                <input type='text' class='form-control' size=45 value =$ligne[prix]>
                 </div>
 
                 <div class='input-group'>
                 <div class='input-group-text'>Quantite :</div>
-                <input type='text' class='form-control' value =$ligne[quantite]>
+                <input type='text' class='form-control' size=45 value =$ligne[quantite]>
                 </div>
 
                 <div class='input-group'>
                 <div class='input-group-text'>Format :</div>
-                <input type='text' class='form-control' value =$ligne[format]>
+                <input type='text' class='form-control' size=45 value =$ligne[format]>
                 </div>
                  
                 <div class='input-group'>
                 <div class='input-group-text'>fournisseur :</div>
-                <input type='text' class='form-control' value =$ligne[fournisseur]>
+                <input type='text' class='form-control' size=45 value =$ligne[fournisseur]>
                 </div>
                  
-                <div class='input-group'>
-                <div class='input-group-text'>fournisseur :</div>
-                <input type='text' class='form-control' value =$ligne[fournisseur]>
-                </div>
+               
                 <div class='input-group'>
                 <div class='input-group-text'>description :</div>
-                <input type='text' class='form-control' value =$ligne[description]>
+                <input type='text' class='form-control'  size=45 value =$ligne[description]>
                 </div>
-            
-
-            </div><br>
-            
+                
+                <input type='submit' value='ENREGISTRER'>
+                <input type='reset'value='annuler'>
+                
+            <br>
+        
             </div>
-            <input type='submit' value='sauvegarder'><input type='reset'value='annuler'>
-        </form>");
+        </p>");
         } else {
             echo "<h5>" . $ligne["nomProduit"] . "</h5>",
             "<div class=row >",
@@ -186,23 +203,26 @@ function Modifier($bd)
             "<b> quantité : </b> " . $ligne["quantite"],
             "<br>",
             "<b> format : </b> " . $ligne["format"],
+            "<br>",
             "<b> fournisseur : </b> " . $ligne["fournisseur"],
             "<br>",
             "<b> description : </b> " . $ligne["description"],
             "<br>",
             "</div>",
+            "<br>",
             "<div class=col-lg-2 >
-                <a href='modifier.php?id=$ligne[idProduit]'>modifier</a>
+                <a href='modifier.php?action=modifier&id=$ligne[idProduit]'>modifier</a>
              </div>",
-            "<br>";
-            print("</div><hr>");
+            "<br>",
+            "</div>",
+            "<hr>";
+            "</form>";
         }
     };
 }
-function modifier2($bd, $idProduit, $nomProduit, $prix, $fournisseur, $quantite, $format, $description)
+function modifierProduit($bd, $no, $nomProduit, $prix, $fournisseur, $quantite, $format, $description)
 {
+    $sql = "update produit set nomProduit=$nomProduit , prix=$prix,fournisseur=$fournisseur, quantite=$quantite,format=$format ,description=$description  where idProduit=$no";
 
-    $requete = "update produit set nomProduit =$nomProduit ,prix =$prix ,fournisseur=$fournisseur ,quantite= $quantite,format = $format ,description = $description where idProduit = $idProduit";
-    $resultat = mysqli_query($bd, $requete);
-
+    mysqli_query($bd, $sql);
 }

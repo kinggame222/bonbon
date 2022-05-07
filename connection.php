@@ -5,6 +5,13 @@ include 'inclus/header.php'
 require "librairies/fonction.php";
 
 ?>
+<?php
+$bd;
+connecterBD($bd);
+verife($bd);
+
+?>
+
 
 <div id="texte">
     <form name="connection" action="connection.php?action=connection" method="post">
@@ -28,7 +35,7 @@ require "librairies/fonction.php";
             </div>
             <div class="col-7">
                 <br>
-                <input type="button" value="Se connecter" onclick="location.href='Ajouter_Produit.php'">
+                <input type="submit" value="Se connecter">
                 <input type="reset" value="Annuler">
             </div>
         </div>
