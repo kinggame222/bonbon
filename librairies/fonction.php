@@ -20,7 +20,7 @@ function verife($bd)
             ajouter_produit_function($bd);
         };
 
-        //supprimer
+        //supprimer 
         if ($_GET['action'] == "supprimer") {
             $requete = "select * from produit";
             $resultat = mysqli_query($bd, $requete);
@@ -42,15 +42,15 @@ function verife($bd)
             $resultat = mysqli_query($bd, $requete);
             $_Courriel = $_POST['courriel'];
             $_Mdp = $_POST['motdepasse'];
-
+            
             while ($ligne = mysqli_fetch_array($resultat)) {
 
                 if ($_Courriel == $ligne['mail'] && $_Mdp == $ligne['pasword'] && "" !== $_Courriel && "" !== $_Mdp) {
                     echo '<script type="text/javascript">
-                    window.location = "http://site/bonbon/Ajouter_Produit.php?action=plus" </script>';
+                    window.location = "http://messite/semaine9/bonbon/Ajouter_Produit.php?action=plus" </script>';
                 } else {
                     echo '<script type="text/javascript">
-                    window.location = "http://site/bonbon/index.php"
+                    window.location = "http://messite/semaine9/bonbon/index.php"
                </script>';
                 }
             }
